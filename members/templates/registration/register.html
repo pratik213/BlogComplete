@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %}
+{% load static %}
+{% block css%} <link rel="stylesheet" href="{% static 'myblog\css\registration.css' %}">{% endblock %}
 {% block title %}Register{% endblock %}
 {% block content %}
 <h1>Register</h1>
@@ -11,4 +14,40 @@
 </form>
 </div>
 
+{% endblock %}
+
+
+ {% endcomment %}
+
+
+
+
+
+{% load static %}
+{% block css%} 
+<link rel="stylesheet" href="{% static 'myblog\css\registration.css' %}">
+{% endblock %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="form-group">
+        <h2>Personal Information</h2>
+        <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+        {{ form.first_name }}
+        <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+        {{ form.last_name }}
+        <label for="{{ form.email.id_for_label }}">Email:</label>
+        {{ form.email }}
+    </div>
+    <div class="form-group">
+        <h2>Account Information</h2>
+        <label for="{{ form.username.id_for_label }}">Username:</label>
+        {{ form.username }}
+        <label for="{{ form.password1.id_for_label }}">Password:</label>
+        {{ form.password1 }}
+        <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+        {{ form.password2 }}
+        <button type="submit">Register</button>
+    </div>
+</div>
 {% endblock %}

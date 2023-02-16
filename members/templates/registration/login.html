@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Login{% endblock %}
+{% block css%}<link rel="stylesheet" href="{% static 'myblog\css\login.css' %}">{% endblock %}
 {% block content %}
+
 <h1>Login</h1>
+
 <br>
 <div class="form-group">
 <form method="POST">
     {% csrf_token %}
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+        {{ form.non_field_errors }}
+        Not registered? <a href="{% url 'register' %}">Register here</a>.
+    </div>
+    {% endif %}
     <div class="mb-3">
         <input type="text" class="form-control" name="username" placeholder="Enter your username here">
         
