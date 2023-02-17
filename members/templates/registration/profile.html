@@ -1,12 +1,12 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% block content %}
-<h1>USER PROFILE</h1>
+<h1 class="ml-5">My PROFILE</h1>
 <br>
-<div class="card mb-3">
+<div class="card mb-3 ml-5">
 <div class="row g-0">
     <div class="col-md-2">
-      {% if page_user.profile_pic.url %}
+      {% if page_user.profile_pic %}
       <img src="{{ page_user.profile_pic.url }}" class="img-fluid rounded-start"></img>
       {% else %}
       <img src="{% static 'myblog/images/default_profile.jpg' %}" class="img-fluid rounded-start"></img>

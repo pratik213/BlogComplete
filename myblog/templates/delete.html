@@ -3,17 +3,19 @@
 {% block content %}
 {% if user.is_authenticated %}
 {% if user.id == post.author.id %}
-<h1>Delete {{ post.title }}</h1>
+<h1 class="ml-4">Delete {{ post.title }}</h1>
 <br>
 
     <form method="POST">
         {% csrf_token %}
-        <strong>Are you sure you want to delete {{post.title}} ??</strong></br></br>
-        <button class="btn btn-primary">Delete</button>
-        <button class="btn btn-primary">Cancel</button>
+        <strong class="ml-4">Are you sure you want to delete {{post.title}} ??</strong></br></br>
+        <button class="btn btn-primary ml-4">Delete</button>
+        
+        
     </form>
+    <a href="{% url "home" %}"><button class="btn btn-primary mt-2 ml-4">Cancel</button></a>
 {% else %}
-<h1>You are not authorized to delete this post.Please Login !!!!!! </h1>
+<h1 class="ml-4">You are not authorized to delete this post.Please Login !!!!!!! </h1>
 {% endif %}
 {% endif %}
 

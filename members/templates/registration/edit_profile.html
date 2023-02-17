@@ -2,9 +2,9 @@
 {% block title %}Edit Settings{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-<h1>Edit Settings</h1>
+<h1 class="ml-5">Edit Settings</h1>
 <br>
-<div class="form-group">
+<div class="form-group ml-5">
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}

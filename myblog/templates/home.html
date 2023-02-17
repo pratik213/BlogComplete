@@ -3,7 +3,7 @@
 
 {% block css%}<link rel="stylesheet" href="{% static 'myblog\css\home.css' %}">{% endblock %}
 {% block content %}
-<h1 class="ml-4 mr-4 bg-primary text-center">POST</h1>
+<h1 class="ml-4 mr-4 bg-primary text-center text-white">POST</h1>
     <div class="row ml-4 mr-4 bg-primary p-4">
   {% for post in object_list %}
   <div class="col-4 mycard">
@@ -19,8 +19,12 @@
         {% endif %} 
       </div>
       <div class="card-body">
-        <h5 class="card-title"><a href="{% url 'article_detail' post.pk %}">{{ post.title }}</a></h5>
-        <p class="card-text"> {{ post.snippet }}
+        <h5 class="card-title text-capitalize">{{ post.title }}</h5>
+        <p class="card-text"> {{ post.snippet | truncatewords:20 }}</p>
+
+
+          
+        <a href="{% url 'article_detail' post.pk %}"><button class="text btn-primary btn-sm float-left">Read more</button></a>
     
       </div>
     </div>

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Add Category{% endblock %}
 {% block content %}
-<h1>ADD Category</h1>
+<h1 class="ml-4">ADD Category</h1>
 <br>
-<div class="form-group">
+<div class="form-group ml-4">
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}

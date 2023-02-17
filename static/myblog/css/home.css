@@ -1,10 +1,25 @@
 .atatime{
     height: 250px;
     width: 450px;
+    opacity: 0.8;
+    transition: 0.4s;
+
     
     
 }
-.mycard{
-    border-radius: 80px;
+.atatime button{
+    display: none;
+    transition: 0.6s;
 }
+.atatime:hover button{
+    display: inline;
+}
+
+
+.atatime:hover{
+    border-radius: 50px;
+    opacity:1.5;
+}
+
+
 
