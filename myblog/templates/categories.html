@@ -1,28 +1,36 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Categories{% endblock %}
+{% block css%}<link rel="stylesheet" href="{% static 'myblog\css\home.css' %}">{% endblock %}
 {% block content %}
 
 
 {% if category_posts %}
 
 <h1 class="ml-4">{{ cats }}</h1>
-<ul>
+<div class="row ml-4 mr-4 bg-primary p-4">
 {% for post in category_posts %}
-<li class="ml-4">
-    <a href="{% url 'article_detail' post.pk %}">{{ post.title }}</a> - 
+<div class="col-4 mycard">
+  <div class="card bg-light mb-3 atatime">
+    <div class="card-header"><a href="{% url 'article_detail' post.pk %}">{{ post.title }}</a> - 
     {{ post.author.first_name }} {{ post.author.last_name }}
     {% if user.is_authenticated %}
     <small><a href="{% url 'update_post' post.pk %}">(Edit)</a></small>
     <small><a href="{% url 'delete_post' post.pk %}">(Delete)</a></small>
     <br />
-    {% endif %} {{ post.body | slice:":200" | safe }}
-  </li>
+    {% endif %} 
+    
+    <div class="card-body">
+      <p class="card-text">{{ post.body | slice:":200" | safe }}</p>
+    </div>
+  </div>
+</div>
+</div>
 {% endfor %}
-</ul>
+</div>
 {% else %}
 <h1 class="ml-4">Sorry this category is not available </h1>
 {% endif %}
-
 {% endblock %}
 
 

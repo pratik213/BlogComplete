@@ -85,6 +85,7 @@ def CategoryView(request,cats):
 
 def CategoryListView(request):
     cat_menu_list=Category.objects.all()
+    
     return render(request, "categories_list.html",{'cat_menu_list':cat_menu_list})
 
 
